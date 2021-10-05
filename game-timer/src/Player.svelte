@@ -13,8 +13,21 @@
     const toggleControls = () => (showControls = !showControls);
     const onDelete = () => dispatch("removeplayer", id);
     const addMinute = () => (time += 60);
-    const removeMinute = () => (time -= 60);
-    const timeConvert = (num:number):string => {return Math.floor(num / 60) + ":" + num % 60};
+    const removeMinute = () => {
+      if (time <= 60) {
+        time = 0;
+      }
+      else {
+        time -= 60
+      } 
+    };
+    const timeConvert = (num:number):string => {
+      const hours:number = Math.floor(num / 3600);
+      num %= 3600;
+      const minutes:number = Math.floor(num / 60);
+      const seconds:number = num % 60;
+      return `${hours}h:${minutes}m:${seconds}s`;
+    };
 </script>
 
 <div class="card" background-color="{color}">
@@ -27,12 +40,12 @@
             +
         {/if}
       </button>
-      <button class="" on:click={onDelete}>x</button>
     </h1>
-    <h3>Time Remaining: {timeConvert(time)}</h3>
     {#if showControls}
       <button class="" on:click={addMinute}>+1</button>
       <button class="" on:click={removeMinute}>-1</button>
       <button class="btn btn-danger btn-sm" on:click={onDelete}>x</button>
+      <input type="color" value="FFF">
     {/if}
+    <h3>Time Remaining: {timeConvert(time)}</h3>
   </div>
