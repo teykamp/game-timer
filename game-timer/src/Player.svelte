@@ -28,24 +28,35 @@
       const seconds:number = num % 60;
       return `${hours}h:${minutes}m:${seconds}s`;
     };
+
+    const print = ():void => {
+      console.log(color);
+    };
+
 </script>
 
-<div class="card" background-color="{color}">
-    <h1>
-       {name} | {id}
-      <button class="btn btn-sm" on:click={toggleControls}>
-        {#if showControls}
-            -
-        {:else}
-            +
-        {/if}
-      </button>
-    </h1>
-    {#if showControls}
-      <button class="" on:click={addMinute}>+1</button>
-      <button class="" on:click={removeMinute}>-1</button>
-      <button class="btn btn-danger btn-sm" on:click={onDelete}>x</button>
-      <input type="color" value="FFF">
-    {/if}
-    <h3>Time Remaining: {timeConvert(time)}</h3>
-  </div>
+<div class="card" style="background-color: {color}">
+  <h1>
+      {name}
+    <button class="btn btn-sm" on:click={toggleControls}>
+      {#if showControls}
+          -
+      {:else}
+          +
+      {/if}
+    </button>
+  </h1>
+  {#if showControls}
+    <button class="" on:click={addMinute}>+1</button>
+    <button class="" on:click={removeMinute}>-1</button>
+    <button class="btn btn-danger btn-sm" on:click={onDelete}>x</button>
+    <input type="color" value={color} on:click="{print}">
+  {/if}
+  <h3>Time Remaining: {timeConvert(time)}</h3>
+</div>
+
+<style>
+
+</style>
+
+<!-- TODO: MAKE COLORS DYNAMIC and reactive (edit css cus wont work in div) -->

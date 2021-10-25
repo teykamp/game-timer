@@ -3,13 +3,15 @@
     import PlayerArch from "./PlayerArch"
 
     const dispatch = createEventDispatcher();
-    
+
+    export let id:number;
+
     let name:string;
     let time:number;
     
     const onSubmit = (e):void => {
         e.preventDefault();
-        let player = new PlayerArch(-1, name, time*60, "FFF");
+        let player = new PlayerArch(id+2, name, time*60, "", false);
         dispatch("addplayer", player);
     };
   </script>

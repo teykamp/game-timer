@@ -3,10 +3,11 @@
 	import AddPlayer from "./AddPlayer.svelte"
 	import PlayerArch from "./PlayerArch"
 
-	let countDir:boolean = false;
+	let countDir:boolean = false; // false=down, true=up
 	let activePlayer:number = 0;
-	let currentID = 0;
-	let examplePlayer = new PlayerArch(currentID, "Player 1", 60, "FFF");
+	let currentID:number = 0;
+	let examplePlayer:PlayerArch = new PlayerArch(currentID, "Player 1", 60, "", false);
+	let activeTimer:boolean = false;
 	
 	let playerList:PlayerArch[] = [];
 	playerList = [...playerList, examplePlayer]
@@ -26,9 +27,17 @@
 		console.log("player:", playerList[1]);
 	};
 
+	const toggleTimer = ():void => {
+		activeTimer = false;
+	};
+
 </script>
 	<div class="container">
-		<AddPlayer on:addplayer={addPlayer}/>
+		<AddPlayer 
+		on:addplayer={addPlayer}
+		id={currentID}
+		/>
+		<button on:click={toggleTimer}>Start/Pause</button>
 		{#if playerList.length === 0}
 			<p>No Players.</p>
 		{:else}
