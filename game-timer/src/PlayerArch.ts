@@ -11,17 +11,15 @@ export default class PlayerArch {
         this.time = time;
         this.color = color;
         this.isActive = isActive;
-        console.log(id, time);
         this.checkTypes();
     }
 
     checkTypes():void {
-        if (typeof this.name == "string") {
+        if (this.name == undefined) {
             this.name = `Player ${this.id}`
         }
         
-        if (typeof this.time == "number") {
-            console.log("hdfgjkghkd")
+        if (!(this.time >= 0)) {
             this.time = 600;
         }
     }
