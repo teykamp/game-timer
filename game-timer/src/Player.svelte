@@ -29,10 +29,6 @@
       return `${hours}h:${minutes}m:${seconds}s`;
     };
 
-    const print = ():void => {
-      console.log(color);
-    };
-
 </script>
 
 <div class="card" style="background-color: {color}">
@@ -50,7 +46,7 @@
     <button class="" on:click={addMinute}>+1</button>
     <button class="" on:click={removeMinute}>-1</button>
     <button class="btn btn-danger btn-sm" on:click={onDelete}>x</button>
-    <input type="color" value={color} on:click="{print}">
+    <input type="color" bind:value={color}>
   {/if}
   <h3>Time Remaining: {timeConvert(time)}</h3>
 </div>

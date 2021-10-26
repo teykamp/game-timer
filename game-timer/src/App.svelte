@@ -6,7 +6,7 @@
 	let countDir:boolean = false; // false=down, true=up
 	let activePlayer:number = 0;
 	let currentID:number = 0;
-	let examplePlayer:PlayerArch = new PlayerArch(currentID, "Player 1", 60, "", false);
+	let examplePlayer:PlayerArch = new PlayerArch(currentID, "Player 1", 60, "#FFF", false);
 	let activeTimer:boolean = false;
 	
 	let playerList:PlayerArch[] = [];
