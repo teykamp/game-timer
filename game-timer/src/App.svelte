@@ -38,15 +38,15 @@
 		id={currentID}
 		/>
 		<button on:click={toggleTimer}>Start/Pause</button>
-		{#if playerList.length === 0}
+		{#if playerList.length == 0}
 			<p>No Players.</p>
 		{:else}
 			{#each playerList as player}
 				<Player
 				id={player.getID()}
 				name={player.name}
-				time={player.time}
-				color={player.color}
+				bind:time={player.time}
+				bind:color={player.color}
 				on:removeplayer={removePlayer} />
 			{/each}
 		{/if}
