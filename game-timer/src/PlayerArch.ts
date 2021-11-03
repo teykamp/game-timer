@@ -3,6 +3,7 @@ export default class PlayerArch {
     name:string;
     time:number;
     color:string;
+    textColor:string;
     isActive:boolean;
 
     constructor(id:number, name:string, time:number, color:string, isActive:boolean) {
@@ -10,6 +11,7 @@ export default class PlayerArch {
         this.name = name;
         this.time = time;
         this.color = color;
+        this.textColor = "";
         this.isActive = isActive;
         this.checkTypes();
     }
@@ -19,7 +21,7 @@ export default class PlayerArch {
             this.name = `Player ${this.id}`
         }
         
-        if (!(this.time > 0)) {
+        if (!(this.time >= 0)) {
             this.time = 600;
         }
     }

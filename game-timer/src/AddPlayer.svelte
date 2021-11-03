@@ -11,7 +11,7 @@
     
     const onSubmit = (e):void => {
         e.preventDefault();
-        let player = new PlayerArch(id+2, name, time*60, "", false);
+        let player = new PlayerArch(id+2, name, time*60, "#FFF", false);
         dispatch("addplayer", player);
     };
   </script>

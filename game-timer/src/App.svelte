@@ -28,7 +28,7 @@
 	};
 
 	const toggleTimer = ():void => {
-		activeTimer = false;
+		activeTimer = !activeTimer;
 	};
 
 </script>
@@ -47,6 +47,7 @@
 				name={player.name}
 				bind:time={player.time}
 				bind:color={player.color}
+				bind:textColor={player.textColor}
 				on:removeplayer={removePlayer} />
 			{/each}
 		{/if}
