@@ -15,11 +15,11 @@ export default class PlayerArch {
     }
 
     checkTypes():void {
-        if (this.name == undefined) {
+        if (this.name == undefined || this.name == "") {
             this.name = `Player ${this.id}`
         }
         
-        if (!(this.time >= 0)) {
+        if (!(this.time > 0)) {
             this.time = 600;
         }
     }

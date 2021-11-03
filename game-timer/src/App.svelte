@@ -24,7 +24,7 @@
 		let newPlayer = e.detail;
 		newPlayer.setID(currentID);
 		playerList = [...playerList, newPlayer];
-		console.log("player:", playerList[1]);
+		// console.log("player:", playerList[1]);
 	};
 
 	const toggleTimer = ():void => {
